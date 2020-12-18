@@ -1,6 +1,6 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "JAMES YU",
+  "description": "Svelte Sapper tailwindcss study",
   "version": "0.0.1",
   "scripts": {
     "watch:tailwind": "postcss static/tailwind.css -o static/index.css -w",
