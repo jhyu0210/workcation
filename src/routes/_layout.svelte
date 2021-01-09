@@ -15,12 +15,12 @@
 	} */
 </style>
 
-<Nav {segment}/>
+<!-- <Nav {segment}/> -->
 
 <main>
 	<slot></slot>
 </main>
-
+<!-- 
 <footer class="text-center pb-8 bg-gray-800 w-full">
 	<p class="text-xs text-gray-200 font-light">Copyright @2020 Inner Circle Inc.</p>
-</footer>
+</footer> -->
