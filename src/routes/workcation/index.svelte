@@ -11,10 +11,10 @@ let tests = [1,2,3,4] ;
 
 
 <style>
-	.bg-teal-200 { background-color: #b2f5ea; }
+	/* .bg-teal-200 { background-color: #b2f5ea; }
 	.topM {
 		margin-top: 40px,
-	}
+	} */
 </style>
 
 <div class="bg-gray-200 antialiased">
@@ -29,9 +29,9 @@ let tests = [1,2,3,4] ;
 		</div>
 		<!-- <div class="p-2 bg-gray-300 rounded-lg flex-col items-center"> -->
 			<div class="mt-6  sm:overflow-x-auto ">
-				<div class="px-4  -mt-8 sm:pb-8  sm:flex sm:-ml-2">
+				<div class="px-4 -mt-8 sm:pb-8  sm:inline-flex sm:-ml-2">
 					{#each tests as test, index}
-					<div class="mt-10 sm:max-w-xs sm:w-full sm:flex-shrink-0 sm:px-2 sm:mt-0">
+					<div class="mt-10 sm:w-80 sm:flex-shrink-0 sm:px-2 sm:mt-0">
 						<div class= "relative pb-5/6">
 							<img class="absolute inset-0 h-full object-cover rounded-lg shadow-md " src="./images/home.jpg" alt="">
 						</div>

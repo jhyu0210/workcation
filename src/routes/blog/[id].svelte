@@ -2,8 +2,10 @@
 	export async function preload({ params }) {
 		// the `slug` parameter is available because
 		// this file is called [slug].svelte
-		const res = await this.fetch(`blog/${params.slug}.json`);
+		const res = await this.fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`);
+		//fetch-default is "get"
 		const data = await res.json();
+		console.log(`fetched:::${params.id}`);
 
 		if (res.status === 200) {
 			return { post: data };
@@ -60,5 +62,5 @@
 <h1>{post.title}</h1>
 
 <div class="content">
-	{@html post.html}
+	<pre>{JSON.stringify(post)}</pre>
 </div>

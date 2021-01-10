@@ -6,6 +6,7 @@ const contents = JSON.stringify(posts.map(post => {
 		slug: post.slug
 	};
 }));
+console.log(typeof(contents));//string
 
 export function get(req, res) {
 	res.writeHead(200, {
