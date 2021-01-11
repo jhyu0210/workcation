@@ -17,10 +17,10 @@ let tests = [1,2,3,4] ;
 	} */
 </style>
 
-<div class="min-h-screen bg-gray-200 antialiased xl:flex xl:flex-col">
+<div class="min-h-screen bg-gray-200 antialiased xl:flex xl:flex-col xl:h-screen">
 	<SiteHeader class="xl:flex-shrink-0"/>
 	
-	<div class="xl:flex-1 xl:flex">
+	<div class="xl:flex-1 xl:flex  xl:overflow-y-hidden">
 		
 		<SearchFilters />
 
