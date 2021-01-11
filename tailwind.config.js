@@ -12,6 +12,7 @@
     theme: {
       extend: {
         spacing:{
+          '72':'18rem',//xl:w-72
           '80':'20rem'//sm:w-80
         },
         padding:{
