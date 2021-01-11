@@ -22,7 +22,7 @@
     </button>
   </div>
   {#if openFilters}
-  <form>
+  <form class="lg:flex">
     <!-- First selection -->
     <div class="px-4 py-4 border-t border-gray-900 sm:flex sm:-mx-2">
       
