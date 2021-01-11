@@ -24,34 +24,35 @@
   {#if openFilters}
   <form class="lg:flex">
     <!-- First selection -->
-    <div class="px-4 py-4 border-t border-gray-900 sm:flex sm:-mx-2">
+    <div class="px-4 py-4 border-t border-gray-900 ">
       
       <!-- bedrooms and bathroooms -->
-    
-      <div class="flex -mx-2 sm:w-1/2 sm:mx-0">
-        <label class="block w-1/2 px-2">
-          <span class="text-sm font-semibold text-gray-500 ">Bedrooms</span>
-          <select class="form-select mt-1 bg-gray-700 block w-full rounded text-white shadow focus:bg-gray-500" name="bedrooms" id="">
-            <option name="">4</option>
-          </select>
-        </label>
-        <label class="block w-1/2 px-2">
-          <span class="text-sm font-semibold text-gray-500">Bathrooms</span>
-          <select class="form-select bg-gray-700  mt-1 block w-full rounded text-white shadow focus:bg-gray-500" name="bathrooms" id="">
-            <option value="">3</option>
-          </select>
-        </label>
-      </div>
-      <!-- Bedrooms and Bathrooms -->
-    
-      <!-- Price Range -->
-      <div class="mt-4 sm:w-1/2 sm:mt-0 px-2 w-full -mx-2 sm:mx-0">
-        <label class="">
-          <span class="text-sm font-semibold text-gray-500">Price Range</span>
-          <select class="form-select bg-gray-700 mt-1  block w-full rounded text-white shadow" name="pricerange" id="">
-            <option value="">Up to $2,000/wk</option>
-          </select>
-        </label>
+      <div class="flex flex-wrap -mx-2">
+        <!-- <div class="flex -mx-2 sm:w-1/2 sm:mx-0"> -->
+          <label class="block w-1/2 px-2 sm:w-1/4">
+            <span class="text-sm font-semibold text-gray-500 ">Bedrooms</span>
+            <select class="form-select mt-1 bg-gray-700 block w-full rounded text-white shadow focus:bg-gray-500" name="bedrooms" id="">
+              <option name="">4</option>
+            </select>
+          </label>
+          <label class="block w-1/2 px-2 sm:w-1/4">
+            <span class="text-sm font-semibold text-gray-500">Bathrooms</span>
+            <select class="form-select bg-gray-700  mt-1 block w-full rounded text-white shadow focus:bg-gray-500" name="bathrooms" id="">
+              <option value="">3</option>
+            </select>
+          </label>
+        <!-- </div> -->
+        <!-- Bedrooms and Bathrooms -->
+      
+        <!-- Price Range -->
+        <!-- <div class="mt-4 sm:w-1/2 sm:mt-0 px-2 w-full -mx-2 sm:mx-0"> -->
+          <label class="block w-full px-2 mt-4 sm:w-1/2 sm:mt-0">
+            <span class="text-sm font-semibold text-gray-500">Price Range</span>
+            <select class="form-select bg-gray-700 mt-1  block w-full rounded text-white shadow" name="pricerange" id="">
+              <option value="">Up to $2,000/wk</option>
+            </select>
+          </label>
+        <!-- </div> -->
       </div>
       <!-- Price Range -->
     </div>
