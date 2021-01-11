@@ -1,5 +1,5 @@
 <script>
-  let openFilters = false;
+  let openFilters = true;
   function filtersToggle(){
     openFilters = !openFilters;
   }
