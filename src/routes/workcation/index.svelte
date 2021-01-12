@@ -4,10 +4,10 @@
 
 <script>
 	import PropertyCard from "./components/PropertyCard.svelte";
-import SearchFilters from "./components/SearchFilters.svelte";
-import SiteHeader from "./components/SiteHeader.svelte";
-let tests = [1,2,3,4] ;
-	// let isOpen = true;
+	import SearchFilters from "./components/SearchFilters.svelte";
+	import SiteHeader from "./components/SiteHeader.svelte";
+	let tests = [1,2,3,4] ;
+		// let isOpen = true;
 </script>
 
 
