@@ -1,0 +1,102 @@
+import {LoremIpsum} from 'lorem-ipsum'
+
+const lorem = new LoremIpsum() 
+const properties = [
+	{
+		type: 'apartment',
+    beds: 3,
+    baths:2,
+    shortDescription: "modern Home in city center",
+    description: lorem.generateWords(24),
+    ratings:5,
+    imageUrl:"./images/home.jpg",
+    priceRange:"140000",
+    reviews: 18,
+    uploadAt: Date.now(),
+    city:'Los Angeles',
+    cityDescription:"Live the stars in these luxurious Southern Caifornia estates."
+  },
+
+  {
+		type: 'apartment',
+    beds: 1,
+    baths:2,
+    shortDescription: "modern Home in city center",
+    description: lorem.generateWords(24),
+    ratings:2,
+    imageUrl:"./images/home.jpg",
+    priceRange:"120000",
+    reviews: 21,
+    uploadAt: Date.now(),
+    city:'Los Angeles',
+  },
+
+  {
+		type: 'loft',
+    beds: 1,
+    baths:2,
+    shortDescription: "one room with 2 baths, loft",
+    description: lorem.generateWords(24),
+    ratings:4,
+    imageUrl:"./images/home.jpg",
+    priceRange:"140000",
+    reviews: 31,
+    uploadAt: Date.now(),
+    city:'Los Angeles',
+  },
+  {
+		type: 'house',
+    beds: 3,
+    baths:3,
+    shortDescription: "modern Home in city center",
+    description: lorem.generateWords(24),
+    ratings:4,
+    imageUrl:"./images/home.jpg",
+    priceRange:"140000",
+    reviews: 31,
+    uploadAt: Date.now(),
+    city:'Los Angeles',
+  },
+  {
+		type: 'loft',
+    beds: 2,
+    baths:1,
+    shortDescription: "modern Home in city center",
+    description: lorem.generateWords(24),
+    ratings:4,
+    imageUrl:"./images/home.jpg",
+    priceRange:"140000",
+    reviews: 31,
+    uploadAt: Date.now(),
+    city:'Los Angeles',
+  },
+  {
+		type: 'townhouse',
+    beds: 2,
+    baths:2,
+    shortDescription: "modern Home in city center",
+    description: lorem.generateWords(24),
+    ratings:4,
+    imageUrl:"./images/home.jpg",
+    priceRange:"140000",
+    reviews: 31,
+    uploadAt: Date.now(),
+    city:'Los Angeles',
+  },
+  {
+		type: 'apratment',
+    beds: 2,
+    baths:1,
+    shortDescription: "modern Home in city center",
+    description: lorem.generateWords(24),
+    ratings:4,
+    imageUrl:"./images/home.jpg",
+    priceRange:"140000",
+    reviews: 31,
+    uploadAt: Date.now(),
+    city:'Los Angeles',
+  }
+];
+
+export default properties;
+  

@@ -2,12 +2,47 @@
 	<title>Workcation</title>
 </svelte:head>
 
+<script context="module">
+	export function preload() {
+		return this.fetch(`workcation.json`).then(r => r.json()).then(properties => {
+			return {properties};
+		})
+	}
+</script>
+
+
 <script>
-	import PropertyCard from "./components/PropertyCard.svelte";
-	import SearchFilters from "./components/SearchFilters.svelte";
-	import SiteHeader from "./components/SiteHeader.svelte";
-	let tests = [1,2,3,4] ;
+	import {onDestroy} from "svelte"
+	import { filters } from '../../stores/stores.js'
+	import PropertyCard from "../../components/PropertyCard.svelte";
+	import SearchFilters from "../../components/SearchFilters.svelte";
+	import SiteHeader from "../../components/SiteHeader.svelte";
+	
+	export let properties;
+	// console.log(`prloaded properties ${JSON.stringify(properties)}`)
+	
+	let propertyFilters;
+	let filteredProperties;
+
+
+	const unsubscribe = filters.subscribe(value => {
+		
+		propertyFilters = value;
+		// console.log(`Value:${JSON.stringify(value)}`)
+		
+  });
+	
+	$: filteredProperties = properties.filter(
+		p => p.beds === propertyFilters.beds 
+					&& p.baths === propertyFilters.baths  
+					&& p.type === propertyFilters.type );
+
+	
+	// $: console.log(`filtered properties ${JSON.stringify(filteredProperties)}`)
+	$: console.log(`filters ${propertyFilters.type}`)
+		// let typeFilter = {}
 		// let isOpen = true;
+	onDestroy(unsubscribe);
 </script>
 
 
@@ -34,10 +69,9 @@
 			<!-- <div class="p-2 bg-gray-300 rounded-lg flex-col items-center"> -->
 				<div class="mt-6  sm:overflow-x-auto ">
 					<div class="px-4 -mt-8 sm:pb-8  sm:inline-flex sm:-ml-2">
-						{#each tests as test, index}
-							<PropertyCard/>
+						{#each filteredProperties as property, index}
+							<PropertyCard {property}/>
 						{/each}
-	
 					</div>
 					</div>
 		</main>

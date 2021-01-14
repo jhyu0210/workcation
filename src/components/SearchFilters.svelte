@@ -1,8 +1,38 @@
 <script>
-  let openFilters = false;
+  import { filters } from "../stores/stores.js";
+  import { onDestroy } from 'svelte'
+  let openFilters = true;
   function filtersToggle(){
     openFilters = !openFilters;
   }
+
+  let propertyFilter = {};
+
+  const unsubscribe = filters.subscribe(value =>{
+    propertyFilter = value;
+  });
+
+  let selectedBeds = propertyFilter.beds;
+  let selectedBaths = propertyFilter.baths;
+  let selectedType = propertyFilter.type;
+
+  $:console.log(`selected values :::${selectedBeds}, ${selectedBaths}, ${selectedType}`);
+  
+  function handleSubmit(){
+    console.log(`handle Submit Type::: ${selectedType}`)
+   filters.set(
+     {
+       beds:selectedBeds, 
+       baths:selectedBaths, 
+       type:selectedType
+      });
+  }
+  onDestroy(unsubscribe);
+
+  let bedrooms=[1,2,3,4,5];
+  let bathrooms=[1,2,3,4,5];
+  let ptypes=["apartment","house","townhouse","loft"];
+
 </script>
 
 <section class="bg-gray-800 xl:w-72" >
@@ -22,7 +52,8 @@
     </button>
   </div>
   <!-- {#if openFilters} -->
-  <form class="xl:h-full xl:flex xl:flex-col xl:justify-between" class:hidden="{!openFilters}">
+  <form on:submit|preventDefault = {handleSubmit}
+    class="xl:h-full xl:flex xl:flex-col xl:justify-between" class:hidden="{!openFilters}">
     <div class="lg:flex xl:block xl:overflow-y-auto">
       <!-- First selection -->
       <div class="px-4 py-4 border-t border-gray-900 lg:w-1/3 xl:border-t-0 xl:w-full">
@@ -32,14 +63,24 @@
           <!-- <div class="flex -mx-2 sm:w-1/2 sm:mx-0"> -->
             <label class="block w-1/2 px-2 sm:w-1/4 lg:w-1/2 xl:w-1/2">
               <span class="text-sm font-semibold text-gray-500 ">Bedrooms</span>
-              <select class="form-select mt-1 bg-gray-700 block w-full rounded text-white shadow focus:bg-gray-500" name="bedrooms" id="">
-                <option name="">4</option>
+              <select
+                bind:value={selectedBeds} 
+                id="bedrooms"
+                class="form-select mt-1 bg-gray-700 block w-full rounded text-white shadow focus:bg-gray-500" name="bedrooms">
+                {#each bedrooms as bed}
+                <option name="">{bed}</option>
+                {/each}
               </select>
             </label>
             <label class="block w-1/2 px-2 sm:w-1/4 lg:w-1/2 xl:w-1/2">
               <span class="text-sm font-semibold text-gray-500">Bathrooms</span>
-              <select class="form-select bg-gray-700  mt-1 block w-full rounded text-white shadow focus:bg-gray-500" name="bathrooms" id="">
-                <option value="">3</option>
+              <select 
+                id="bathrooms"
+                bind:value = {selectedBaths}
+                class="form-select bg-gray-700  mt-1 block w-full rounded text-white shadow focus:bg-gray-500" name="bathrooms">
+                {#each bathrooms as bath}
+                <option value={bath}>{bath}</option>
+                {/each}
               </select>
             </label>
           <!-- </div> -->
@@ -62,11 +103,15 @@
       <div  class="px-4 py-4 border-t border-gray-900 lg:w-1/3 lg:border-l xl:w-full"> 
         <span class="block text-sm font-semibold text-gray-500">Property Type</span>
         <div class="sm:flex sm:-mx-2 lg:block lg:mx-0">
-          <label class=" mt-1  flex items-center sm:w-1/4 sm:p-2  lg:w-full lg:px-0">
-            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType" value="house">
-            <span class="ml-2 text-white">House</span>
-          </label>
-          <label class=" mt-1  flex items-center sm:w-1/4 sm:p-2  lg:w-full lg:px-0">
+          {#each ptypes as ptype}
+            <label class=" mt-1  flex items-center sm:w-1/4 sm:p-2  lg:w-full lg:px-0">
+              <input 
+              bind:group = {selectedType} value={ptype}
+              class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType">
+              <span class="ml-2 text-white">{ptype}</span>
+            </label>
+          {/each}
+          <!-- <label class=" mt-1  flex items-center sm:w-1/4 sm:p-2  lg:w-full lg:px-0">
             <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType" value="apartment">
             <span class="ml-2 text-white">Apartment</span>
     
@@ -79,7 +124,7 @@
           <label class=" mt-1  flex items-center sm:w-1/4 sm:p-2  lg:w-full lg:px-0">
             <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType" value="townhouse">
             <span class="ml-2 text-white">Townhouse</span>
-          </label>
+          </label> -->
         </div>
       </div>
       <!-- second selection -->
@@ -120,7 +165,7 @@
       </div>
     </div>
     <div class="bg-gray-900 px-4 py-4 sm:text-right">
-      <button class="block px-4 py-2 bg-indigo-500 font-semibold text-white w-full hover:bg-indigo-400 rounded-lg sm:inline-block sm:w-auto xl:block xl:w-full">Update Results</button>
+      <button type="submit" class="block px-4 py-2 bg-indigo-500 font-semibold text-white w-full hover:bg-indigo-400 rounded-lg sm:inline-block sm:w-auto xl:block xl:w-full">Update Results</button>
     </div>
 
   </form>
