@@ -1,6 +1,6 @@
 import properties from './_properties.js';
 
-let filteredString="";
+// let filteredString="";
 
 const contents = JSON.stringify(properties.map(property => {
 	return {
