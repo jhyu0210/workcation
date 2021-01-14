@@ -16,10 +16,10 @@
   let selectedBaths = propertyFilter.baths;
   let selectedType = propertyFilter.type;
 
-  $:console.log(`selected values :::${selectedBeds}, ${selectedBaths}, ${selectedType}`);
+  // $:console.log(`selected values :::${selectedBeds}, ${selectedBaths}, ${selectedType}`);
   
   function handleSubmit(){
-    console.log(`handle Submit Type::: ${selectedType}`)
+    // console.log(`handle Submit Type::: ${selectedType}`)
    filters.set(
      {
        beds:selectedBeds, 

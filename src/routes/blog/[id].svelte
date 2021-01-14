@@ -5,7 +5,7 @@
 		const res = await this.fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`);
 		//fetch-default is "get"
 		const data = await res.json();
-		console.log(`fetched:::${params.id}`);
+		// console.log(`fetched:::${params.id}`);
 
 		if (res.status === 200) {
 			return { post: data };

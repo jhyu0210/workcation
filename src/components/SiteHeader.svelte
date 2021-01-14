@@ -1,9 +1,9 @@
 <script>
   export let isOpen = false;
-  console.log(isOpen)
+  // console.log(isOpen)
   function toggle() {
     isOpen = !isOpen;
-    console.log(isOpen)
+    // console.log(isOpen)
   }
 </script>
 <style>

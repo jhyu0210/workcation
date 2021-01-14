@@ -39,7 +39,7 @@
 
 	
 	// $: console.log(`filtered properties ${JSON.stringify(filteredProperties)}`)
-	$: console.log(`filters ${propertyFilters.type}`)
+	// $: console.log(`filters ${propertyFilters.type}`)
 		// let typeFilter = {}
 		// let isOpen = true;
 	onDestroy(unsubscribe);
@@ -67,13 +67,17 @@
 				</p>
 			</div>
 			<!-- <div class="p-2 bg-gray-300 rounded-lg flex-col items-center"> -->
-				<div class="mt-6  sm:overflow-x-auto ">
-					<div class="px-4 -mt-8 sm:pb-8  sm:inline-flex sm:-ml-2">
-						{#each filteredProperties as property, index}
-							<PropertyCard {property}/>
-						{/each}
+				<div class="mt-6  sm:overflow-x-auto sm:overflow-y-hidden">
+					<div class="px-4 sm:inline-flex sm:pt-2 sm:pb-8 ">
+						<div class="sm:w-80 sm:flex-shrink-0 sm:mt-0">
+							<div>
+								{#each filteredProperties as property, index}
+									<PropertyCard {property}/>
+								{/each}
+							</div>
+						</div>
 					</div>
-					</div>
+				</div>
 		</main>
 	</div>
 </div> 
